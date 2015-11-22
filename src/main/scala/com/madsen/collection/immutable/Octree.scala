@@ -46,7 +46,9 @@ object Octree {
   private def parentScalar(centre: Long, radius: Long): Long = {
 
     val (x, r) = (centre, radius)
-    x + r - 2 * r * (((x - r) / (2 * r)) % 2)
+    val res = x + r - 2 * r * (((x - r) / (2 * r)) % 2)
+
+    res
   }
 
 
