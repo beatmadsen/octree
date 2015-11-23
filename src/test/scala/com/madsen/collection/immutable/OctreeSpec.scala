@@ -7,17 +7,16 @@ import org.scalatest.FlatSpec
   */
 class OctreeSpec extends FlatSpec {
 
-  "An octree" should "bla" in {
+  "An octree" should "be empty when no elements are added" in {
     val o = Octree()
 
     assert(o.isEmpty)
   }
 
-  it should "scuby" in {
+  it should "report correct size when new elements are added" in {
     val o: Octree[Int] = Octree()
+    val n: Octree[Int] = o + ((1L, 2L, 3L) → 22) + ((2L, 2L, 3L) → 22)
 
-    o + ((1L, 2L, 3L) → 22) + ((2L, 2L, 3L) → 22)
-
-    assert(o.size == 2)
+    assert(n.size == 2)
   }
 }

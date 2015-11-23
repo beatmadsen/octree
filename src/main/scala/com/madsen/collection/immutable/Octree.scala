@@ -146,7 +146,7 @@ object Octree {
 
     private def addToNewParent[B1 >: B](value: B1, centre: Point): Octree[B1] = {
 
-      val (parentCentre, parentRadius) = parent(centre, radius)
+      val (parentCentre, parentRadius) = parent(this.centre, this.radius)
       val children: Map[Point, Node[B1]] = Map(this.centre → this)
       val node: Node[B1] = Node(parentCentre, parentRadius, Right(children))
 
