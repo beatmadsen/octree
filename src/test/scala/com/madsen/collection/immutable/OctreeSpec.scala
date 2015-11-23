@@ -19,4 +19,24 @@ class OctreeSpec extends FlatSpec {
 
     assert(n.size == 2)
   }
+
+  it should "bla" in {
+    val pointA = (1L, 45L, 14L)
+    val pointB = (65L, 15L, 14L)
+    val o = Octree[Int]() + (pointA → 78) + (pointB → 23)
+
+    assert(o.contains(pointA))
+    assert(o.contains(pointB))
+
+    val o1 = o - pointB
+
+    assert(o1.contains(pointA))
+    assert(!o1.contains(pointB))
+
+    val o2 = o1 - pointA
+
+    assert(!o2.contains(pointA))
+    assert(!o2.contains(pointB))
+    assert(o2.isEmpty)
+  }
 }
